@@ -14,6 +14,7 @@ data "aws_subnets" "pvt_eks_subnets" {
 
 
 locals {
+  region              = "us-east-1"
   karpenter_node_name = "eks-karpenter-pods"
   cluster_name        = "my-acme-cluster"
 
