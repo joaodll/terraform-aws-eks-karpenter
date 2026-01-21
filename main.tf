@@ -8,8 +8,8 @@ module "eks" {
   enable_cluster_creator_admin_permissions = true
   endpoint_public_access_cidrs             = [""] ### Some Public CIDR IP
 
-  vpc_id      = ""
-  subnet_ids  = ""
+  vpc_id      = data.aws_vpc.vpc.id
+  subnet_ids  = data.aws_subnets.pvt_eks_subnets.ids
   enable_irsa = true
 
   access_entries = {
@@ -110,5 +110,5 @@ module "eks" {
       })
     }
   }
-
+  tags = local.tags
 }
