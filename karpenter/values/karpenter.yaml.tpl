@@ -1,0 +1,9 @@
+serviceAccount:
+  name: ${service_account}
+settings:
+    clusterName: ${cluster_name}
+    clusterEndpoint: ${cluster_endpoint}
+    interruptionQueue: ${queue_name}
+replicas: 2
+nodeSelector:
+  karpenter.sh/controller: 'true'
