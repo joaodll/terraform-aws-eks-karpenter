@@ -1,3 +1,38 @@
+# Karpenter Terraform Module
+
+**Purpose:** Deploy and configure **Karpenter** to provide dynamic, on-demand node provisioning for an existing Amazon EKS cluster.
+
+This module assumes the EKS cluster and its core infrastructure are already provisioned.
+
+---
+
+## What this module manages
+
+- Karpenter controller deployment
+- IAM roles and policies required for node provisioning
+- IRSA configuration using the cluster OIDC provider
+- Karpenter provisioners (node pools) and node templates
+- Default settings for instance selection and capacity types
+
+---
+## Relationship to the EKS module
+
+Responsibilities are intentionally split:
+
+- **EKS module**
+  - Control plane
+  - IAM and OIDC
+  - Cluster access
+  - Minimal bootstrap node group
+
+- **Karpenter module**
+  - Node lifecycle and scaling
+  - Instance selection and pricing strategy
+  - Node labels, taints, and constraints
+
+This separation keeps node provisioning logic isolated and easy to evolve.
+
+
 ## Requirements
 
 | Name | Version |

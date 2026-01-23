@@ -100,19 +100,6 @@ The addon tolerations referenced in this project are **an example of how to targ
 
 ---
 
-## High-level flow
-
-1. Deploy this EKS Terraform module  
-   → cluster, IAM, OIDC, access entries, minimal managed node group
-
-2. Deploy the Karpenter Terraform module  
-   → controller, IAM roles, provisioners
-
-3. Deploy workloads  
-   → Karpenter provisions nodes dynamically based on demand
-
----
-
 
 ## Requirements
 
